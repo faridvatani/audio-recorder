@@ -1,0 +1,74 @@
+body {
+    overflow: hidden;
+  }
+  
+.mic-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .display{
+    width: 100%;
+    padding: 25px 0;
+    margin: 25px 0;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: .5s;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+    
+    i {
+      color: #b2b1b1;
+      font-size: 23px;
+      transition: .9s;
+    }
+        
+    &:before {
+      content: '';
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      opacity: .2;
+      z-index: -1;
+      position:absolute;
+    }
+  }
+  
+  .circle.active {
+    background: #ff0000;
+    
+    &:before {
+        background: gray;
+        animation: bounce .8s ease-in-out infinite .5s;
+      }
+      
+      i {
+        color: #ffffff;
+      }
+  }
+}
+  
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  };
+  25% {
+    transform: scale(1.4);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }   
+}
