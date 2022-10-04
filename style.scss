@@ -1,18 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    overflow: hidden;
-  }
+  overflow: hidden;
+  font-family: sans-serif;
+}
   
 .mic-container {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  text-align: center;
+
   .display{
     width: 100%;
-    padding: 25px 0;
-    margin: 25px 0;
+    padding: 5px 0;
+    margin: 15px 0;
+  }
+  
+  .controllers{
+    display: inline-flex;
+    margin: 0px auto;
   }
 
   .circle {
@@ -20,13 +33,16 @@ body {
     height: 80px;
     border-radius: 50%;
     background: #ffffff;
+    margin: 0 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
     transition: .5s;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
-    
+    cursor: pointer;
+
+  
     i {
       color: #b2b1b1;
       font-size: 23px;
@@ -71,4 +87,43 @@ body {
   100% {
     transform: scale(1.3);
   }   
+}
+
+
+// Audio Waves
+.loader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+#wave {
+  width: 50px;
+	height: 50px;
+	fill: #000;
+}
+
+@for $i from 1 through 10 {
+	#Line_#{$i} {
+		animation: pulse 1s infinite;
+		animation-delay: $i * .15s;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		transform: scaleY(1);
+		transform-origin: 50% 50%;
+	}
+	
+	50% {
+		transform: scaleY(.7);
+		transform-origin: 50% 50%;
+	}
+	
+	100% {
+		transform: scaleY(1);
+		transform-origin: 50% 50%;
+	}
 }
